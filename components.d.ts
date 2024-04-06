@@ -8,7 +8,6 @@ export {}
 declare module 'vue' {
   export interface GlobalComponents {
     ChatBubbles: typeof import('./src/components/ChatBubbles.vue')['default']
-    ChatList: typeof import('./src/components/ChatList.vue')['default']
     ChatWidget: typeof import('./src/components/ChatWidget.vue')['default']
   }
 }
