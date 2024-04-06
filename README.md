@@ -46,8 +46,7 @@ Here's how you will set up:
 ```html
 <head>
     <script src="https://unpkg.com/guest-chat-lib@<version-here>/dist/guest-chat-lib.umd.js"></script>
-    <link rel="stylesheet" href="https://unpkg.com/guest-chat-lib@<version-here>/dist/style.css"
-    />
+    <link rel="stylesheet" href="https://unpkg.com/guest-chat-lib@<version-here>/dist/style.css"/>
 </head>
 <body>
     <div id="app">
