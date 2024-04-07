@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>chat lib example </title>
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+    <script src="https://unpkg.com/guest-chat-lib@0.0.40/dist/guest-chat-lib.umd.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/guest-chat-lib@0.0.40/dist/style.css"/>
+</head>
+<body>
+    <div id="app">
+        <!-- <guest-chat-lib /> -->
+    </div>
+
+    <script type="module">
+        document.addEventListener("DOMContentLoaded", () => {
+            console.log(window)
+
+        })
+        // Vue.createApp({}).use(GuestChatLib).mount('#app')
+    </script>
+</body>
+</html>
