@@ -33,7 +33,8 @@ export default defineConfig({
           name: 'GuestChatLib',
       },
       rollupOptions: {
-          external: ['vue', 'pinia', 'vuetify/lib'],
+          external: ['vue', 'vuetify/lib'],
+          // external: ['vue', 'vuetify/lib', 'pinia'],
           output: {
               globals: {
                   vue: 'Vue',

@@ -1,8 +1,9 @@
+import type { App } from 'vue'
 import GuestChatLib from './App.vue'
-import { registerPlugins } from '@/plugins'
+import { registerPlugins } from './plugins'
 
 export default {
-    install: (app, opt) => {
+    install: (app: App, opt) => {
         registerPlugins(app)
         app.component('GuestChatLib', GuestChatLib)
     },

@@ -187,10 +187,10 @@ fsevents@~2.3.2:
   resolved "https://registry.npmjs.org/fsevents/-/fsevents-2.3.3.tgz"
   integrity sha512-5xoDfX+fL7faATnagmWPpbFtwh/R77WmMMqqHGS65C3vvB0YHrgF+B1YmZ3441tMj5n63k0212XNoJwzlhffQw==
 
-guest-chat-lib@^0.0.40:
-  version "0.0.40"
-  resolved "https://registry.npmjs.org/guest-chat-lib/-/guest-chat-lib-0.0.40.tgz"
-  integrity sha512-b4+Md4geQ6YaycaEdcE0PtDCY0uKd014zPenaP7xirfA1UpaWOjSp47lZlSw/pWwFCF6l4vJV8HvQ2SqDh02tw==
+guest-chat-lib@^0.0.41:
+  version "0.0.41"
+  resolved "https://registry.npmjs.org/guest-chat-lib/-/guest-chat-lib-0.0.41.tgz"
+  integrity sha512-ZEz8qvaA8D8SelhV04MvqRse26YVrWTQ0+LJOe81bhMxy5k6hm69gGFdDAkS7WT6LtdVhGe1Ye3hReevCbLRLg==
   dependencies:
     "@mdi/font" "6.2.95"
     pinia "^2.1.7"
