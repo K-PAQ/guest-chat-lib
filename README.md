@@ -59,6 +59,27 @@ Here's how you will set up:
 </body>
 ```
 
+## Props
+
+Here are the available props that help you customize your Guest Chat widget
+
+```
+appId: String (requried)
+primaryColor: String (optional)
+secondaryColor: String (optional)
+```
+
+Example:
+```jsx
+<template>
+    <GuestChatLib 
+        appId="test"
+        primaryColor="#158DE8"
+        secondaryColor="#BBDEFB"
+    />
+</template>
+```
+
 ## Demo
 
 <i>Here's the list of available demos. (currently not implemented yet)</i>

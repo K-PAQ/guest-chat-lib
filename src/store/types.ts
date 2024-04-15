@@ -49,5 +49,9 @@ export interface AppState {
     socket: {
         isConnected: boolean
         io: Socket
-    };
+    }
+    colors: {
+        primary: string
+        secondary: string
+    }
 }

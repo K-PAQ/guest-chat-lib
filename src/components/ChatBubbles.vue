@@ -23,7 +23,7 @@
                     <i>{{ item.message}}</i>
                 </v-chip>
             </div>
-            <small class="bg-blue-lighten-4 rounded pa-3" v-else>
+            <small class="rounded pa-3" v-else :style="`background:${$state.colors.secondary}`">
                 {{ item.message }}
             </small>
             <small

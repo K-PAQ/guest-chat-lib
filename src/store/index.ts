@@ -22,6 +22,10 @@ export default defineStore('chat', {
         socket: {
             isConnected: false,
             io: io(SOCKET_URL)
+        },
+        colors: {
+            primary: "#158DE8",
+            secondary: "#BBDEFB"
         }
     }),
     actions: {

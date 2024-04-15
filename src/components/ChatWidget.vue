@@ -1,6 +1,6 @@
 <template>
     <v-card width="330" max-height="400">
-        <div style="background-color: #158de8">
+        <div :style="`background-color: ${$state.colors.primary}`">
             <v-card-title style="color: #f2f2f2">Chat Support</v-card-title>
         </div>
 
@@ -15,7 +15,7 @@
                     <v-btn
                         prepend-icon="mdi-face-agent"
                         variant="elevated"
-                        color="#158DE8"
+                        :color="$state.colors.primary"
                         class="mt-3"
                         block
                         :loading="$state.queue.isLoading"

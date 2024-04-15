@@ -7,12 +7,14 @@
     <title>chat lib example </title>
 
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-    <script src="../../dist/guest-chat-lib.umd.js"></script>
-    <link rel="stylesheet" href="../../dist/style.css"/>
+    <script src="https://unpkg.com/guest-chat-lib@0.0.43/dist/guest-chat-lib.umd.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/guest-chat-lib@0.0.43/dist/style.css"/>
 </head>
 <body>
     <div id="app" style="height: 100vh;width: 100%;">
-        <guest-chat-lib></guest-chat-lib>
+        <guest-chat-lib
+            app-id="test"
+            ></guest-chat-lib>
     </div>
 </body>
 <script>
