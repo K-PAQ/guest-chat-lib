@@ -18,14 +18,35 @@
 import { onMounted, watch } from 'vue'
 import store from './store'
 
-const { $state, WatchGuestChatEnded, WatchQueueHandle, WatchIncomingMessages } = store()
+const { $state, WatchGuestChatEnded, WatchQueueHandle, WatchIncomingMessages } =
+    store()
 
 const props = defineProps({
-    appId: String,
-    primaryColor: String,
-    secondaryColor: String,
-    waitingDisplayMessage: String,
-    appHeader: String,
+    appId: {
+        type: String,
+        default: 'test',
+    },
+    primaryColor: {
+        type: String,
+        default: '#158DE8',
+    },
+    secondaryColor: {
+        type: String,
+        default: '#BBDEFB',
+    },
+    waitingDisplayMessage: {
+        type: String,
+        default:
+            'Please be aware that it might take a while to connect with support as there may be a queue. We appreciate your patience.',
+    },
+    appHeader: {
+        type: String,
+        default: 'Chat Support',
+    },
+    isOpen: {
+        type: Boolean,
+        default: false,
+    },
 })
 
 onMounted(() => {
@@ -38,7 +59,7 @@ onMounted(() => {
     if (props?.waitingDisplayMessage)
         $state.waitingMessage = props?.waitingDisplayMessage
     if (props?.appHeader) $state.appHeader = props?.appHeader
-
+    if (props?.isOpen) $state.widgetIsOpen = props?.isOpen
 
     WatchGuestChatEnded()
     WatchQueueHandle()
@@ -52,6 +73,7 @@ watch(
         () => props.secondaryColor,
         () => props.waitingDisplayMessage,
         () => props?.appHeader,
+        () => props?.isOpen,
     ],
     ([
         appId,
@@ -59,6 +81,7 @@ watch(
         secondaryColor,
         waitingDisplayMessage,
         appHeader,
+        isOpen,
     ]) => {
         if (!appId) throw new Error('APP ID IS REQUIRED')
 
@@ -67,6 +90,7 @@ watch(
         if (secondaryColor) $state.colors.secondary = secondaryColor
         if (waitingDisplayMessage) $state.waitingMessage = waitingDisplayMessage
         if (appHeader) $state.appHeader = appHeader
+        if (isOpen) $state.widgetIsOpen = isOpen
     },
 )
 </script>
