@@ -90,7 +90,7 @@ watch(
         if (secondaryColor) $state.colors.secondary = secondaryColor
         if (waitingDisplayMessage) $state.waitingMessage = waitingDisplayMessage
         if (appHeader) $state.appHeader = appHeader
-        if (isOpen) $state.widgetIsOpen = isOpen
+        $state.widgetIsOpen = !!isOpen
     },
 )
 </script>
