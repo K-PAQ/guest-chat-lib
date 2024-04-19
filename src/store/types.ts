@@ -50,6 +50,8 @@ export interface AppState {
         isConnected: boolean
         io: Socket
     }
+    appHeader: string
+    waitingMessage: string
     colors: {
         primary: string
         secondary: string

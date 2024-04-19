@@ -43,7 +43,5 @@
 <script setup lang="ts">
 import store from '../store'
 
-const { $state, WatchIncomingMessages } = store()
-
-WatchIncomingMessages()
+const { $state } = store()
 </script>

@@ -1,16 +1,14 @@
 <template>
     <v-card width="330" max-height="400">
-        <div :style="`background-color: ${$state.colors.primary}`">
-            <v-card-title style="color: #f2f2f2">Chat Support</v-card-title>
+        <div class="d-flex justify-space-between" :style="`background-color: ${$state.colors.primary}`">
+            <v-card-title style="color: #f2f2f2">{{ $state.appHeader }}</v-card-title>
         </div>
 
         <v-card-text style="height: 265px; overflow: auto">
             <v-card class="mb-12" color="surface-variant" variant="tonal" v-if="!$state.queue.inChatProgress">
                 <v-card-text class="text-medium-emphasis text-caption">
                     <p class="text-center">
-                        Please be aware that it might take a while to connect
-                        with support as there may be a queue. We appreciate your
-                        patience.
+                        {{ $state.waitingMessage }}
                     </p>
                     <v-btn
                         prepend-icon="mdi-face-agent"
@@ -48,7 +46,6 @@
 <script setup lang="ts">
 import store from '../store'
 
-const { $state, generateGuestId, handleSendMessage, WatchQueueHandle } = store()
+const { $state, generateGuestId, handleSendMessage } = store()
 
-WatchQueueHandle()
 </script>

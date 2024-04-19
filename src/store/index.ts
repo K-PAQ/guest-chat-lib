@@ -23,20 +23,41 @@ export default defineStore('chat', {
             isConnected: false,
             io: io(SOCKET_URL)
         },
+        // CUSTOMIZATION
+        appHeader: 'Chat Support',
+        waitingMessage: 'Please be aware that it might take a while to connect with support as there may be a queue. We appreciate your patience.',
         colors: {
             primary: "#158DE8",
             secondary: "#BBDEFB"
         }
     }),
     actions: {
+        WatchGuestChatEnded() {
+            this.socket.io.on(SOCKET_EVENTS.GUEST_CHAT_ENDED, (id) => {
+                this.socket.io.close()
+                this.socket.io.connect()
+                this.queue = {
+                    isLoading: false,
+                    inChatProgress: false
+                }
+                this.guestId = null
+                this.guestPrimaryId = null
+                this.adminHandler = null
+                this.chat = {
+                    draftMessage: '',
+                    messageList: []
+                }
+                this.socket.isConnected = false
+            })
+        },
         WatchQueueHandle() {
             this.socket.io.on(SOCKET_EVENTS.GUEST_HANDLED, ({ handler }) => {
-                if(!handler) return console.log("Handler state: ", handler)
-            
+                if (!handler) return console.log("Handler state: ", handler)
+
                 this.adminHandler = handler.guest.handledBy
                 this.guestPrimaryId = handler._id
                 this.queue.inChatProgress = true
-            
+
                 console.log("handler : ", handler)
 
                 this.fetchChats()
@@ -45,9 +66,9 @@ export default defineStore('chat', {
         WatchIncomingMessages() {
             this.socket.io.on(SOCKET_EVENTS.INCOMING_MESSAGES, (messageReceived) => {
                 if (!this.appId) return console.error('App id is undefined')
-            
+
                 // HANDLES UPDATES ON CHAT BUBBLES
-                if(messageReceived.senderId._id == this.adminHandler?._id){
+                if (messageReceived.senderId._id == this.adminHandler?._id) {
                     this.chat.messageList.push({
                         _id: messageReceived._id,
                         receiverId: messageReceived.receiverId._id,
@@ -94,7 +115,7 @@ export default defineStore('chat', {
         },
         async fetchChats() {
             try {
-                if(!this.adminHandler?._id) throw "Admin Id not found"
+                if (!this.adminHandler?._id) throw "Admin Id not found"
 
                 const api = await fetch(`${BASE_URL}/messages/private`, {
                     method: "POST",
@@ -117,7 +138,7 @@ export default defineStore('chat', {
             }
         },
         async generateGuestId() {
-            try{
+            try {
                 this.queue.isLoading = true
                 const id = await uuidv4()
 
@@ -132,13 +153,13 @@ export default defineStore('chat', {
                     })
                 })
                 const response = await api.json()
-                if(!response?.status) throw response.error
+                if (!response?.status) throw response.error
 
                 this.guestId = id
-                this.socket.io.emit(SOCKET_EVENTS.GUEST_CONNECT, { guestId : id, appId: this.appId })
+                this.socket.io.emit(SOCKET_EVENTS.GUEST_CONNECT, { guestId: id, appId: this.appId })
                 this.socket.isConnected = true
             }
-            catch(error){
+            catch (error) {
                 console.log(error)
             }
         }

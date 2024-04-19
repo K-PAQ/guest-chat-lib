@@ -45,6 +45,7 @@ Here's how you will set up:
 
 ```html
 <head>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <script src="https://unpkg.com/guest-chat-lib@<version-here>/dist/guest-chat-lib.umd.js"></script>
     <link rel="stylesheet" href="https://unpkg.com/guest-chat-lib@<version-here>/dist/style.css"/>
 </head>
@@ -64,9 +65,11 @@ Here's how you will set up:
 Here are the available props that help you customize your Guest Chat widget
 
 ```
-appId: String (requried)
+appId: String (required)
 primaryColor: String (optional)
 secondaryColor: String (optional)
+waitingDisplayMessage: String (optional)
+appHeader: String (optional)
 ```
 
 Example:
@@ -76,13 +79,15 @@ Example:
         appId="test"
         primaryColor="#158DE8"
         secondaryColor="#BBDEFB"
+        appHeader="Customer Support"
+        waitingDisplayMessage="Please be aware that it might take a while to connect with support as there may be a queue. We appreciate your patience."
     />
 </template>
 ```
 
 ## Demo
 
-<i>Here's the list of available demos. (currently not implemented yet)</i>
+<i>Here's the list of available demos. </i>
 
 <a  href="./demo/html/">HTML</a> <br/>
 <a  href="./demo/vue/">Vue</a>

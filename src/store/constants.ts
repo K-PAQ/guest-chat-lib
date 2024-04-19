@@ -8,4 +8,5 @@ export const SOCKET_EVENTS = {
     // LISTENERS IN CLIENT SIDE
     INCOMING_MESSAGES: 'chat:incoming-messages',
     GUEST_HANDLED: 'guest:handled',
+    GUEST_CHAT_ENDED: 'guest:chat-ended',
 }
