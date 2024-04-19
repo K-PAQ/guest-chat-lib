@@ -89,5 +89,5 @@ Example:
 
 <i>Here's the list of available demos. </i>
 
-<a  href="./demo/html/">HTML</a> <br/>
-<a  href="./demo/vue/">Vue</a>
+<a  href="./demo">HTML</a> <br/>
+<a  href="./demo">Vue</a>
