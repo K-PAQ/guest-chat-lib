@@ -40,20 +40,16 @@ export default defineStore('chat', {
                     isLoading: false,
                     inChatProgress: false
                 }
-                this.guestId = null
-                this.guestPrimaryId = null
-                this.adminHandler = null
-                this.chat = {
-                    draftMessage: '',
-                    messageList: []
-                }
                 this.socket.isConnected = false
             })
         },
         WatchQueueHandle() {
             this.socket.io.on(SOCKET_EVENTS.GUEST_HANDLED, ({ handler }) => {
                 if (!handler) return console.log("Handler state: ", handler)
-
+                this.chat = {
+                    draftMessage: '',
+                    messageList: []
+                }
                 this.adminHandler = handler.guest.handledBy
                 this.guestPrimaryId = handler._id
                 this.queue.inChatProgress = true

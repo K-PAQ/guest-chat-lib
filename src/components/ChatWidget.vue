@@ -1,11 +1,25 @@
 <template>
     <v-card width="330" max-height="400">
-        <div class="d-flex justify-space-between" :style="`background-color: ${$state.colors.primary}`">
-            <v-card-title style="color: #f2f2f2">{{ $state.appHeader }}</v-card-title>
+        <div
+            class="d-flex justify-space-between"
+            :style="`background-color: ${$state.colors.primary}`"
+        >
+            <v-card-title style="color: #f2f2f2">{{
+                $state.appHeader
+            }}</v-card-title>
         </div>
 
-        <v-card-text style="height: 265px; overflow: auto">
-            <v-card class="mb-12" color="surface-variant" variant="tonal" v-if="!$state.queue.inChatProgress">
+        <v-card-text
+            style="height: 265px; overflow: auto"
+            ref="messageContainerRef"
+        >
+            <ChatBubbles v-if="$state.chat.messageList?.length"></ChatBubbles>
+            <v-card
+                class="mb-12"
+                color="surface-variant"
+                variant="tonal"
+                v-if="!$state.queue.inChatProgress"
+            >
                 <v-card-text class="text-medium-emphasis text-caption">
                     <p class="text-center">
                         {{ $state.waitingMessage }}
@@ -22,7 +36,6 @@
                     >
                 </v-card-text>
             </v-card>
-            <ChatBubbles v-else></ChatBubbles>
         </v-card-text>
 
         <v-divider></v-divider>
@@ -44,8 +57,29 @@
     </v-card>
 </template>
 <script setup lang="ts">
+import { ref, watch } from 'vue'
 import store from '../store'
 
 const { $state, generateGuestId, handleSendMessage } = store()
 
+const messageContainerRef = ref<any | null>(null)
+
+watch(
+    () => $state.chat.messageList,
+    (newMessages) => {
+        if (newMessages.length !== 0) {
+            scrollToBottom()
+        }
+    },
+    { deep: true }
+)
+
+const scrollToBottom = () => {
+    if (messageContainerRef.value?.$el) {
+        setTimeout(() => {
+            messageContainerRef.value.$el.scrollTop =
+            messageContainerRef.value?.$el.scrollHeight
+        }, 100)
+    }
+}
 </script>
