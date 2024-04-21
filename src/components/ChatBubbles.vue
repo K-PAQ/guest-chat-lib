@@ -9,7 +9,7 @@
                 : 'd-flex flex-column'
         "
     >
-        <div class="d-flex flex-column pa-3" v-if="item.isBot">
+        <div class="d-flex flex-column pa-3 align-self-center" v-if="item.isBot">
             <i class="d-block text-center font-weight-light" style="font-size:0.76rem">{{
                 item.message
             }}</i>
