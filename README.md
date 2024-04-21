@@ -65,7 +65,7 @@ Here's how you will set up:
 Here are the available props that help you customize your Guest Chat widget
 
 ```
-appId: String (required)
+apikey: String (required)
 primaryColor: String (optional)
 secondaryColor: String (optional)
 waitingDisplayMessage: String (optional)
@@ -76,7 +76,7 @@ Example:
 ```jsx
 <template>
     <GuestChatLib 
-        appId="test"
+        apikey="your-api-key-here"
         primaryColor="#158DE8"
         secondaryColor="#BBDEFB"
         appHeader="Customer Support"

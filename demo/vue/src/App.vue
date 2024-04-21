@@ -1,6 +1,6 @@
 <template>
     <GuestChatLib 
-        appId="test"
+        apikey="your-api-key"
         primaryColor="red"
         secondaryColor="grey"
     />

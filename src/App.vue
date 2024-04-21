@@ -1,6 +1,6 @@
 <template>
     <div
-        v-if="props.appId"
+        v-if="isValid"
         class="position-fixed d-flex flex-column align-end"
         style="bottom: 20px; right: 20px; z-index: 300; gap: 1rem"
     >
@@ -15,17 +15,17 @@
     </div>
 </template>
 <script setup lang="ts">
-import { onMounted, watch } from 'vue'
+import { onMounted, ref, Ref, watch } from 'vue'
 import store from './store'
+import { validateApiKey } from './helper'
 
 const { $state, WatchGuestChatEnded, WatchQueueHandle, WatchIncomingMessages } =
     store()
 
+const isValid: Ref<boolean> = ref(false)
+
 const props = defineProps({
-    appId: {
-        type: String,
-        default: 'test',
-    },
+    apikey: String,
     primaryColor: {
         type: String,
         default: '#158DE8',
@@ -50,25 +50,33 @@ const props = defineProps({
 })
 
 onMounted(() => {
-    if (!props.appId) throw new Error('APP ID IS REQUIRED')
+    ;(async () => {
+        if (!props.apikey) throw new Error('API KEY IS REQUIRED')
 
-    $state.appId = props?.appId
+        const validate = await validateApiKey(props.apikey)
 
-    if (props?.primaryColor) $state.colors.primary = props?.primaryColor
-    if (props?.secondaryColor) $state.colors.secondary = props?.secondaryColor
-    if (props?.waitingDisplayMessage)
-        $state.waitingMessage = props?.waitingDisplayMessage
-    if (props?.appHeader) $state.appHeader = props?.appHeader
-    if (props?.isOpen) $state.widgetIsOpen = props?.isOpen
+        if (!validate.appId) throw new Error('Missing app Id')
 
-    WatchGuestChatEnded()
-    WatchQueueHandle()
-    WatchIncomingMessages()
+        $state.appId = validate.appId
+        isValid.value = true
+
+        if (props?.primaryColor) $state.colors.primary = props?.primaryColor
+        if (props?.secondaryColor)
+            $state.colors.secondary = props?.secondaryColor
+        if (props?.waitingDisplayMessage)
+            $state.waitingMessage = props?.waitingDisplayMessage
+        if (props?.appHeader) $state.appHeader = props?.appHeader
+        if (props?.isOpen) $state.widgetIsOpen = props?.isOpen
+
+        WatchGuestChatEnded()
+        WatchQueueHandle()
+        WatchIncomingMessages()
+    })()
 })
 
 watch(
     [
-        () => props.appId,
+        () => props.apikey,
         () => props.primaryColor,
         () => props.secondaryColor,
         () => props.waitingDisplayMessage,
@@ -76,21 +84,30 @@ watch(
         () => props?.isOpen,
     ],
     ([
-        appId,
+        apikey,
         primaryColor,
         secondaryColor,
         waitingDisplayMessage,
         appHeader,
         isOpen,
     ]) => {
-        if (!appId) throw new Error('APP ID IS REQUIRED')
+        ;(async () => {
+            if (!apikey) throw new Error('API KEY IS REQUIRED')
 
-        $state.appId = appId
-        if (primaryColor) $state.colors.primary = primaryColor
-        if (secondaryColor) $state.colors.secondary = secondaryColor
-        if (waitingDisplayMessage) $state.waitingMessage = waitingDisplayMessage
-        if (appHeader) $state.appHeader = appHeader
-        $state.widgetIsOpen = !!isOpen
+            const validate = await validateApiKey(apikey)
+
+            if (!validate.appId) throw new Error('Missing app Id')
+
+            $state.appId = validate.appId
+            isValid.value = true
+
+            if (primaryColor) $state.colors.primary = primaryColor
+            if (secondaryColor) $state.colors.secondary = secondaryColor
+            if (waitingDisplayMessage)
+                $state.waitingMessage = waitingDisplayMessage
+            if (appHeader) $state.appHeader = appHeader
+            $state.widgetIsOpen = !!isOpen
+        })()
     },
 )
 </script>

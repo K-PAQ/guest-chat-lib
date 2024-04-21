@@ -8,7 +8,7 @@ const meta = {
     layout: 'fullscreen',
     docs: {
       source: {
-        code: `<GuestChatLib appId="test" />`
+        code: `<GuestChatLib apikey="397c58a3-1f79-404b-8168-3affea25a985" />`
       }
     }
   },
@@ -21,7 +21,7 @@ const meta = {
     template: `
       <div style="min-height:450px">
         <GuestChatLib 
-            :appId="args.appId"
+            :apikey="args.apikey"
             :primaryColor="args.primaryColor"
             :secondaryColor="args.secondaryColor"
             :waitingDisplayMessage="args.waitingDisplayMessage"
@@ -38,7 +38,7 @@ type Story = StoryObj<typeof meta>
 
 export const Chat: Story = {
   args: {
-    appId: "test",
+    apikey: "397c58a3-1f79-404b-8168-3affea25a985",
     isOpen: true,
     primaryColor: '#158DE8',
     secondaryColor: '#BBDEFB',
