@@ -1,5 +1,5 @@
-export const BASE_URL: string = 'http://localhost:8001/api'
-export const SOCKET_URL: string = 'http://localhost:8001'
+export const BASE_URL: string = 'https://server.smsuno.clairemontferrond.net:8001/api'
+export const SOCKET_URL: string = 'https://server.smsuno.clairemontferrond.net:8001'
 
 export enum SocketEventEnum {
     GUEST_CONNECT = 'guest:connect',
