@@ -8,7 +8,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "guest-chat-lib": "^0.0.51",
+    "guest-chat-lib": "^0.0.53",
     "pinia": "^2.1.7",
     "vue": "^3.3.4"
   },

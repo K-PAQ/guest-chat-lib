@@ -1,8 +1,8 @@
 <template>
     <GuestChatLib 
         apikey="your-api-key"
-        primaryColor="red"
-        secondaryColor="grey"
+        primaryColor="#e8151e"
+        secondaryColor="#ffe6e6"
     />
 </template>
 <script>

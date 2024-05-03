@@ -7,11 +7,6 @@
   resolved "https://registry.npmjs.org/@babel/parser/-/parser-7.24.4.tgz"
   integrity sha512-zTvEBcghmeBma9QIGunWevvBAp4/Qu9Bdq+2k0Ot4fVMD6v3dsC9WOcRSKk7tRRyBM/53yKMJko9xOatGQAwSg==
 
-"@esbuild/darwin-x64@0.18.20":
-  version "0.18.20"
-  resolved "https://registry.npmjs.org/@esbuild/darwin-x64/-/darwin-x64-0.18.20.tgz"
-  integrity sha512-pc5gxlMDxzm513qPGbCbDukOdsGtKhfxD1zJKXjCCcU7ju50O7MeAZ8c4krSJcOIJGFR+qx21yMMVYwiQvyTyQ==
-
 "@jridgewell/sourcemap-codec@^1.4.15":
   version "1.4.15"
   resolved "https://registry.npmjs.org/@jridgewell/sourcemap-codec/-/sourcemap-codec-1.4.15.tgz"
@@ -23,9 +18,9 @@
   integrity sha512-0RKkhabkFZP3ALwKqrjhdKdhydQpoydIjX6cvjIwLyjADCsE0pG68YkGY+S3qnfdErmhS4m8adwvgrAFXp2AYQ==
 
 "@socket.io/component-emitter@~3.1.0":
-  version "3.1.0"
-  resolved "https://registry.npmjs.org/@socket.io/component-emitter/-/component-emitter-3.1.0.tgz"
-  integrity sha512-+9jVqKhRSpsc591z5vX+X5Yyw+he/HCB4iQ/RYxw35CEPaY1gnsNE43nf9n9AaYjAQrTiI/mOwKUKdUs9vf7Xg==
+  version "3.1.2"
+  resolved "https://registry.npmjs.org/@socket.io/component-emitter/-/component-emitter-3.1.2.tgz"
+  integrity sha512-9BCxFwvbGg/RsZK9tjXd8s4UcwR0MWeFQ1XEKIQVVvAGJyINdrqKMcTRyLoK8Rse1GjzLV9cwjWV1olXRWEXVA==
 
 "@vitejs/plugin-vue@^4.3.1":
   version "4.3.3"
@@ -182,15 +177,10 @@ estree-walker@^2.0.2:
   resolved "https://registry.npmjs.org/estree-walker/-/estree-walker-2.0.2.tgz"
   integrity sha512-Rfkk/Mp/DL7JVje3u18FxFujQlTNR2q6QfMSMB7AvCBx91NGj/ba3kCfza0f6dVDbw7YlRf/nDrn7pQrCCyQ/w==
 
-fsevents@~2.3.2:
-  version "2.3.3"
-  resolved "https://registry.npmjs.org/fsevents/-/fsevents-2.3.3.tgz"
-  integrity sha512-5xoDfX+fL7faATnagmWPpbFtwh/R77WmMMqqHGS65C3vvB0YHrgF+B1YmZ3441tMj5n63k0212XNoJwzlhffQw==
-
-guest-chat-lib@^0.0.43:
-  version "0.0.43"
-  resolved "https://registry.npmjs.org/guest-chat-lib/-/guest-chat-lib-0.0.43.tgz"
-  integrity sha512-acz7FeFYJ0Ad2j8a7v8ZJ9yo73T7cd71vOWQLhaaEmRrAGKmly++AgHE5cONjCjVMNV95rtSYopovjIcjz84Ug==
+guest-chat-lib@^0.0.53:
+  version "0.0.53"
+  resolved "https://registry.npmjs.org/guest-chat-lib/-/guest-chat-lib-0.0.53.tgz"
+  integrity sha512-CBSZaE4J4V7M8QBmkPEMHIvQDF8x+/oWsasX1kxKJLeJeG8J/NTNWA4cszdG0rp7keEft+38z0Fdj1I8l37YLg==
   dependencies:
     "@mdi/font" "6.2.95"
     pinia "^2.1.7"
@@ -307,9 +297,9 @@ vue-demi@>=0.14.5:
     "@vue/shared" "3.4.21"
 
 vuetify@^3.5.8:
-  version "3.5.14"
-  resolved "https://registry.npmjs.org/vuetify/-/vuetify-3.5.14.tgz"
-  integrity sha512-bmfid7K4D+wPi9h7sK4PxjmIB2tBzNuqlW14cs30iQ7GAphEeo/HYwn6aEdNK/Na+imhti8CJDDqdGs6SEfyXQ==
+  version "3.6.3"
+  resolved "https://registry.npmjs.org/vuetify/-/vuetify-3.6.3.tgz"
+  integrity sha512-OBYYJYnNeUYA7kwrv8Rag1EBFbGWAQxJpp0s98U2KQ6SPU7MzzcrvNn7t69vcDbj7mR7Dcf9/jvFapfranXZvA==
 
 ws@~8.11.0:
   version "8.11.0"
